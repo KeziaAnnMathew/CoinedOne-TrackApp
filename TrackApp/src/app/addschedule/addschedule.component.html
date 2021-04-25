@@ -1,0 +1,23 @@
+    <!-- add schedules -->
+    <div class="container">
+      <div class="section">
+        <h3>Add your Work Time</h3>
+        <form id="form-main" [formGroup]="addForm" (ngSubmit)='addSchedule()'>
+          <div class="form-group" *ngFor="let singleday of days;let i=index">
+              <input type="checkbox" name="days" (change)="onCheckboxChange($event,i)">{{singleday.day}}
+    
+            </div>
+            <div class="form-group">
+              <input type="text" name="fromTime" [(ngModel)]="scheduleItem.fromTime" class="form-control" id="fromTime" formControlName="fromTime" placeholder="from" required >
+            </div>
+            <div class="form-group">
+              <input type="text" name="toTime" [(ngModel)]="scheduleItem.toTime" class="form-control" id="toTime" formControlName="toTime" placeholder="to" required >
+            </div>
+            <div class="text-center"><button type="submit" class="btn btn-success butn">Save</button></div>
+        </form>
+      </div>
+      
+    </div>
+    
+
+    <!-- [disabled]="addForm.invalid" -->

@@ -1,0 +1,11 @@
+.home{
+    margin-top:20%;
+    margin-left: 35%;
+    display:flex;
+}
+button{
+    margin:10px;
+    background-color: cornflowerblue;
+    color:white;
+    border-radius: 5px;
+}

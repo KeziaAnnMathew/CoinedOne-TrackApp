@@ -1,0 +1,30 @@
+<div class="container">
+    <div  *ngFor="let schedule of schedules">
+        <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header">Work-Time <mat-icon>edit</mat-icon>Edit</div>
+            <div class="card-body">
+                <div class="days"> 
+                    <div *ngFor="let day of days">
+                        <p>{{day.day}} &nbsp; {{day.set}}</p>
+                        <p></p>
+                    </div>  
+                </div>
+                
+              <p class="card-text">Starts:{{schedule.fromTime}}</p>
+              <p class="card-text">Ends:{{schedule.toTime}}</p>
+            </div>
+        </div>
+    
+    
+        <!-- <div *ngFor="let schedule of schedules;let i=index">
+                <p >{{schedule.fromTime}}</p>
+                <p>{{schedule.toTime}}</p>
+              <div *ngFor="let day of days">
+                  <p>{{day.day}}</p>
+              </div>        
+        </div> -->
+    </div>
+    
+    <button (click)="addSchedule()"><mat-icon class="add">add_circle_outline</mat-icon></button><br>
+    <a>Add your Work Timings</a>
+</div>

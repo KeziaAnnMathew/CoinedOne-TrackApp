@@ -1,0 +1,29 @@
+<div class="container">
+    <p>{{appdetails.appname}}</p>
+<button (click)="viewWeekdays()">Weekdays</button>
+<button (click)="viewWeekends()">Weekends</button>
+<div *ngIf="weekdays">
+    Daily Limit(Mon-Fri)
+    {{appdetails.limitWeekdays}} h<br>
+    <mat-slider thumbLabel
+    [displayWith]="formatLabel"
+    [(ngModel)]="appdetails.limitWeekdays"
+    tickInterval="1"
+    step="0.5"
+    min="0"
+    max="6" aria-label="unit"></mat-slider>
+    <button (click)="updateLimits()">Save</button>
+</div>
+<div *ngIf="!weekdays">
+    Daily Limit(Sat-Sun)
+    {{appdetails.limitWeekend}} h<br>
+    <mat-slider thumbLabel
+    [displayWith]="formatLabel"
+    [(ngModel)]="appdetails.limitWeekend"
+    tickInterval="1"
+    step="0.5"
+    min="0"
+    max="6" aria-label="unit"></mat-slider>
+    <button (click)="updateLimits()">Save</button>
+</div>
+</div>

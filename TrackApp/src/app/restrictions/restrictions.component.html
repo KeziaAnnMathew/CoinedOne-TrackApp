@@ -1,0 +1,11 @@
+<div class="container">
+    <h1>Restrictions</h1>
+    <button (click)="workTime()">work time</button>
+    <button (click)="leisureTime()">Leisure time</button>
+    <div *ngIf="work">
+        <app-blocked-apps></app-blocked-apps>
+    </div>
+    <div *ngIf="!work">
+        <app-limited-appss></app-limited-appss>
+    </div>
+</div>
