@@ -18,17 +18,14 @@ function router(){
         .then((data)=>{
            res.send(data)
         })
+        .catch(err=>{console.log(err);})
     });
     appRouter.put('/appblocked',function(req,res){
         res.header("Access-Control-Allow-Origin", "*")
         res.header("Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS")
         var id=req.body.item._id;
         var item = {
-            appname: req.body.item.appname,
             blocked: req.body.item.blocked,
-            limited:  req.body.item.limited,
-            limitWeekdays:  req.body.item.limitWeekdays,
-            limitWeekend:  req.body.item.limitWeekend
         }
         Appdata.findByIdAndUpdate({_id:id}, item, (err,doc)=>{
                 if(!err){res.send(doc)}
@@ -39,8 +36,6 @@ function router(){
         res.header("Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS")
         var id=req.body.item._id;
         var item = {
-            appname: req.body.item.appname,
-            blocked: req.body.item.blocked,
             limited:  req.body.item.limited,
             limitWeekdays:  req.body.item.limitWeekdays,
             limitWeekend:  req.body.item.limitWeekend

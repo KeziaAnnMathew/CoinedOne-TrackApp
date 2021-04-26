@@ -1,23 +1,35 @@
-    <!-- add schedules -->
-    <div class="container">
-      <div class="section">
-        <h3>Add your Work Time</h3>
-        <form id="form-main" [formGroup]="addForm" (ngSubmit)='addSchedule()'>
-          <div class="form-group" *ngFor="let singleday of days;let i=index">
-              <input type="checkbox" name="days" (change)="onCheckboxChange($event,i)">{{singleday.day}}
-    
-            </div>
-            <div class="form-group">
-              <input type="text" name="fromTime" [(ngModel)]="scheduleItem.fromTime" class="form-control" id="fromTime" formControlName="fromTime" placeholder="from" required >
-            </div>
-            <div class="form-group">
-              <input type="text" name="toTime" [(ngModel)]="scheduleItem.toTime" class="form-control" id="toTime" formControlName="toTime" placeholder="to" required >
-            </div>
-            <div class="text-center"><button type="submit" class="btn btn-success butn">Save</button></div>
-        </form>
+  <div class="container">
+      <div class="header">
+          Add Work Time
       </div>
-      
-    </div>
-    
-
-    <!-- [disabled]="addForm.invalid" -->
+      <div class="whole">
+        <div class="card">
+          <form [formGroup]="addForm" (ngSubmit)='addSchedule()'>
+          <div class="heading">Days Active</div>
+          <div class="list">
+              <div class="days"  *ngFor="let day of days;let i=index">
+                <div class="round" *ngIf="day.set">
+                  <div class="day" (click)="onCheckboxChange(i)">{{day.day | slice:0:1}}</div>
+              </div>
+                <div class="round-none" *ngIf="!day.set">
+                      <div class="day" (click)="onCheckboxChange(i)">{{day.day | slice:0:1}}</div>
+                  </div>
+              </div>
+          </div>
+          <div class="time">
+              <div class="from">
+                  <div class="head">Starts</div>
+                  <div class="label"><input type="text" name="fromTime" [(ngModel)]="scheduleItem.fromTime" id="fromTime" formControlName="fromTime" placeholder="from"></div>
+              </div>
+              <div class="to">
+                  <div class="head">Ends</div>
+                  <div class="label"> <input type="text" name="toTime" [(ngModel)]="scheduleItem.toTime" id="toTime" formControlName="toTime" placeholder="to"></div>
+              </div>
+          </div>
+          <div class="save">
+            <div class="save"><div class="plus"><button type="submit" class="btn btn-primary">Save</button></div></div>
+          </div>
+      </form>
+      </div>
+    </div>    
+  </div>

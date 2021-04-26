@@ -1,0 +1,4 @@
+@import url('../blocked-apps/blocked-apps.component.css');
+mat-icon:hover{
+    cursor: pointer;
+}

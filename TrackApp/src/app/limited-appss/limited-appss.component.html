@@ -1,4 +1,4 @@
-<h1>Limited Apps</h1>
+<!-- <h1>Limited Apps</h1>
 <div *ngFor="let app of apps">
     <div *ngIf="app.limited">
         <p>{{app.appname}}<mat-icon (click)="setLimits(app)">edit</mat-icon>Edit</p>
@@ -10,5 +10,29 @@
 <div *ngFor="let app of apps">
     <div *ngIf="!app.limited">
         <p>{{app.appname}}<button (click)="setLimits(app)">Set Limit</button></p>
+    </div>
+</div> -->
+
+<div class="container">
+    <div class="header">
+        <h1>Limited Apps</h1>
+    </div>
+    <div class="list">
+        <div *ngFor="let app of apps">
+            <div *ngIf="app.limited">
+                <p>{{app.appname}}<mat-icon (click)="setLimits(app)">edit</mat-icon>Edit</p>
+                <p>Weekdays:{{app.limitWeekdays}}h  Weekdays:{{app.limitWeekend}}h</p>
+            </div>           
+        </div>
+    </div>
+    <div class="header">
+        <h1>Other Installed Apps</h1>
+    </div>
+    <div class="list">
+        <div *ngFor="let app of apps">
+            <div *ngIf="!app.limited">
+                <p>{{app.appname}}<button (click)="setLimits(app)">Set Limit</button></p>
+            </div>           
+        </div>
     </div>
 </div>

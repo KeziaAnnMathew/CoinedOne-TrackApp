@@ -1,30 +1,34 @@
 <div class="container">
-    <div  *ngFor="let schedule of schedules">
-        <div class="card bg-light mb-3" style="max-width: 18rem;">
-            <div class="card-header">Work-Time <mat-icon>edit</mat-icon>Edit</div>
-            <div class="card-body">
-                <div class="days"> 
-                    <div *ngFor="let day of days">
-                        <p>{{day.day}} &nbsp; {{day.set}}</p>
-                        <p></p>
-                    </div>  
+    <div class="header">
+        Schedules
+    </div>
+    <div class="whole" *ngFor="let schedule of schedules">
+        <div class="card">
+            <div class="heading">Work Time</div>
+            <div class="list">
+                <div class="days"  *ngFor="let day of schedule.days">
+                    <div class="round" *ngIf="day.set">
+                        <div class="day" >{{day.day | slice:0:1}}</div>
+                    </div>
+                    <div class="round-none" *ngIf="!day.set">
+                        <div class="day" >{{day.day | slice:0:1}}</div>
+                    </div>
                 </div>
-                
-              <p class="card-text">Starts:{{schedule.fromTime}}</p>
-              <p class="card-text">Ends:{{schedule.toTime}}</p>
+            </div>
+            <div class="time">
+                <div class="from">
+                    <div class="head">Starts</div>
+                    <div class="label">{{schedule.fromTime}}</div>
+                </div>
+                <div class="to">
+                    <div class="head">Ends</div>
+                    <div class="label">{{schedule.toTime}}</div>
+                </div>
             </div>
         </div>
-    
-    
-        <!-- <div *ngFor="let schedule of schedules;let i=index">
-                <p >{{schedule.fromTime}}</p>
-                <p>{{schedule.toTime}}</p>
-              <div *ngFor="let day of days">
-                  <p>{{day.day}}</p>
-              </div>        
-        </div> -->
     </div>
     
-    <button (click)="addSchedule()"><mat-icon class="add">add_circle_outline</mat-icon></button><br>
-    <a>Add your Work Timings</a>
+    <div class="add">
+        <div class="add-round"  (click)="addSchedule()"><div class="plus">+</div></div>
+    </div>
 </div>

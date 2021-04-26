@@ -1,4 +1,4 @@
-<h1>Blocked Apps</h1>
+<!-- <h1>Blocked Apps</h1>
 <div *ngFor="let app of apps">
     <div *ngIf="app.blocked">
         <p>{{app.appname}} <mat-slide-toggle [checked]="true"(change)="toggle($event,app)"></mat-slide-toggle></p>
@@ -9,5 +9,28 @@
 <div *ngFor="let app of apps">
     <div *ngIf="!app.blocked">
         <p>{{app.appname}} <mat-slide-toggle (change)="toggle($event,app)"></mat-slide-toggle></p>
+    </div>
+</div> -->
+
+<div class="container">
+    <div class="header">
+        <h1>Blocked Apps</h1>
+    </div>
+    <div class="list">
+        <div *ngFor="let app of apps">
+            <div *ngIf="app.blocked">
+                <p>{{app.appname}} <mat-slide-toggle [checked]="true"(change)="toggle($event,app)"></mat-slide-toggle></p>
+            </div>           
+        </div>
+    </div>
+    <div class="header">
+        <h1>Other Installed Apps</h1>
+    </div>
+    <div class="list">
+        <div *ngFor="let app of apps">
+            <div *ngIf="!app.blocked">
+                <p>{{app.appname}} <mat-slide-toggle (change)="toggle($event,app)"></mat-slide-toggle></p>
+            </div>           
+        </div>
     </div>
 </div>

@@ -1,8 +1,69 @@
-mat-slider{
-    width:40%;
-    height:20px;
-}
 .container{
-    margin-left:30%;
-    margin-top:15%
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.header{
+    height: 10%;
+    width:50%;
+    font-size: 30px;
+    color: rgb(68, 68, 238);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.whole{
+    height: 30%;
+    width: 50%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.card{
+    height: 100%;
+    width:100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.heading{
+    height: 20%;
+    width: 100%;
+    /* background-color: rgb(12, 154, 219); */
+    color: rgb(4, 4, 87);
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.days{
+    width:30%;
+    height:50%;
+}
+.button{
+    width:100%;
+    height:50%;
+    border-radius: 5px;
+    background-color:rgba(221, 221, 221, 0.795);
+}
+.mybtn{
+    background-color: rgba(221, 221, 221, 0.795);
+    width:50%;
+    height:100%;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.not-active{
+    background-color: white;
+}
+.active{
+    background-color: blue;
+}
+mat-slider{
+    width:500px
 }

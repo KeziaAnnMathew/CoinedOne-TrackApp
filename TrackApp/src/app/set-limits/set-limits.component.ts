@@ -12,6 +12,8 @@ export class SetLimitsComponent implements OnInit {
   id:any;
   appdetails:AppModel | any="";
   weekdays=true;
+  weekdaysbtn="active";
+  weekendsbtn="non-ative";
   constructor(private service:TrackScheduleService,private route:ActivatedRoute,private router:Router) { }
 
   ngOnInit(): void {
@@ -32,9 +34,13 @@ export class SetLimitsComponent implements OnInit {
   }
   viewWeekdays(){
     this.weekdays=true;
+    this.weekdaysbtn="active";
+    this.weekendsbtn="non-active";
   }
   viewWeekends(){
     this.weekdays=false;
+    this.weekdaysbtn="non-active";
+    this.weekendsbtn="active";
   }
   updateLimits(){
     if(this.appdetails.limitWeekdays==0 && this.appdetails.limitWeekend==0){

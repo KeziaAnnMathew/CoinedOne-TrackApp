@@ -1,12 +1,12 @@
-:host {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .container{
-    display:flex
-  }
-.section{
-  margin-left:40%;
-  margin-top:8%
+@import url('../../app/schedules/schedules.component.css');
+.input{
+  width:50%;
+ 
 }
+form{
+  width:100%;
+  height:100%;
+  align-items: center;
+  text-align: center;
+}
+

@@ -1,11 +1,32 @@
-<div class="container">
+<!-- <div class="container">
     <h1>Restrictions</h1>
-    <button (click)="workTime()">work time</button>
-    <button (click)="leisureTime()">Leisure time</button>
+    <button (click)="workTime()">Work Time</button>
+    <button (click)="leisureTime()">Non-work Time</button>
     <div *ngIf="work">
         <app-blocked-apps></app-blocked-apps>
     </div>
     <div *ngIf="!work">
         <app-limited-appss></app-limited-appss>
     </div>
+</div> -->
+
+<div class="container">
+    <div class="header">
+        Restrictions
+    </div>
+    <div class="applist">
+        <div class="button">
+            <button (click)="workTime()" [ngClass]="workBtn">Work Time</button>
+            <button (click)="leisureTime()" [ngClass]="nonWorkBtn">Non-work Time</button>
+        </div>
+    </div>
+    <div class="view">
+        <div *ngIf="work">
+            <app-blocked-apps></app-blocked-apps>
+        </div>
+        <div *ngIf="!work">
+            <app-limited-appss></app-limited-appss>
+        </div>
+    </div>
+    
 </div>

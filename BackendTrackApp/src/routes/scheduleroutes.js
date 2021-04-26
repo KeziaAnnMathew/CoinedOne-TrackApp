@@ -9,10 +9,12 @@ function router(){
         .then((data)=>{
             res.send(data);
         })
+        .catch(err=>{console.log(err);})
     });
     scheduleRouter.post('/addschedules',function(req,res){
         res.header("Access-Control-Allow-Origin", "*")
         res.header("Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS")
+        console.log(req.body.schedule)
         var schedule={
             days:req.body.schedule.days,
             fromTime:req.body.schedule.fromTime,
@@ -21,19 +23,19 @@ function router(){
         var scheduleItem=Scheduledata(schedule);
         scheduleItem.save();
     });
-    scheduleRouter.put('/editschedules',function(req,res){
-        res.header("Access-Control-Allow-Origin", "*")
-        res.header("Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS")
-        var id=req.body.schedule._id;
-        var schedule={
-            days:req.body.schedule.days,
-            fromTime:req.body.schedule.fromTime,
-            toTime:req.body.schedule.toTime,
-        }
-        Scheduledata.findByIdAndUpdate({_id:id}, schedule, (err,doc)=>{
-            if(!err){res.send(doc)}
-         })
-    });
+    // scheduleRouter.put('/editschedules',function(req,res){
+    //     res.header("Access-Control-Allow-Origin", "*")
+    //     res.header("Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS")
+    //     var id=req.body.schedule._id;
+    //     var schedule={
+    //         days:req.body.schedule.days,
+    //         fromTime:req.body.schedule.fromTime,
+    //         toTime:req.body.schedule.toTime,
+    //     }
+    //     Scheduledata.findByIdAndUpdate({_id:id}, schedule, (err,doc)=>{
+    //         if(!err){res.send(doc)}
+    //      })
+    // });
     return scheduleRouter;
 }
 

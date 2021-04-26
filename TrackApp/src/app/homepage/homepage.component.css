@@ -1,7 +1,9 @@
+
 .home{
-    margin-top:20%;
+    padding-top:20%;
     margin-left: 35%;
     display:flex;
+    
 }
 button{
     margin:10px;

@@ -46,7 +46,7 @@ export class AddscheduleComponent implements OnInit {
 
   ngOnInit(): void {
     this.addForm =this.formBuilder.group({
-      // 'days':[this.scheduleItem.days],
+      'days':[this.scheduleItem.days],
       'fromTime':[this.scheduleItem.fromTime],
       'toTime':[this.scheduleItem.toTime],
     })
@@ -55,12 +55,8 @@ export class AddscheduleComponent implements OnInit {
     this.service.postSchedules(this.scheduleItem);
     this.router.navigate([`/schedules`])
   }
-  onCheckboxChange(event:any,i:any){
-    if(event.target.checked){
-      this.days[i].set=true
-    }
-    else{
-      this.days[i].set=false;
-    }
+  onCheckboxChange(i:any){
+    this.days[i].set=!this.days[i].set;
+    console.log(this.days)
   }
 }
